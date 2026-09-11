@@ -59,6 +59,14 @@ X.Y.Z - Descrição curta em português
 
 > Ordem decrescente (mais recente no topo).
 
+### `0.1.8` — 2026-09-11 — Add TROUBLESHOOTING.md covering token, update and git-hook failures
+
+New contributors and operators had no single place mapping the agent's exact
+printed error messages to a cause and a fix. Adds `TROUBLESHOOTING.md`,
+linked from both `README.md` and `README_br.md`. Documentation only — no
+runtime behavior changes, so no separate trigger under section 1 applies;
+this entry shares the version bumped by the previous change in this delivery.
+
 ### `0.1.8` — 2026-09-11 — Remove token value from debug log in send_metrics retry loop
 
 `send_metrics()` printed the full bearer token to stdout on every send attempt
