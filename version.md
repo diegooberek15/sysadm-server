@@ -1,6 +1,6 @@
 # Versão — SYSADM-SERVER
 
-**Versão atual:** `0.1.7`
+**Versão atual:** `0.1.8`
 
 Agente de administração de servidores, com atualização a partir do GitHub.
 
@@ -58,6 +58,13 @@ X.Y.Z - Descrição curta em português
 ## 3. Changelog
 
 > Ordem decrescente (mais recente no topo).
+
+### `0.1.8` — 2026-09-11 — Remove token value from debug log in send_metrics retry loop
+
+`send_metrics()` printed the full bearer token to stdout on every send attempt
+(`DEBUG TOKEN: '{TOKEN}'`), leaking a live credential into any terminal, cron
+log or log collector capturing the agent's output. The debug line is removed;
+the retry loop and status reporting are unaffected.
 
 ### `0.1.3` — 2026-09-02 — Agent doc: Releases rule and the English-only language rule
 

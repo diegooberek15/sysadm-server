@@ -493,8 +493,6 @@ def send_metrics(data, retries=3):
 
     for attempt in range(1, retries + 1):
         try:
-            print(f"DEBUG TOKEN: '{TOKEN}'")
-
             response = requests.post(
                 API_URL,
                 json=data,
