@@ -59,6 +59,19 @@ X.Y.Z - Descrição curta em português
 
 > Ordem decrescente (mais recente no topo).
 
+### `0.1.8` — 2026-09-11 — Bump agent CURRENT_VERSION to 1.2.87 and refresh version.json for the debug-log fix
+
+The debug-log removal alone would not have reached already-deployed agents:
+`check_update()` only applies a fetched `srv.py` when its `CURRENT_VERSION`
+is strictly newer than the running agent's, and validates the download
+against the `sha256` recorded in `version.json`. Both were still pointing at
+`1.2.86` (the pre-fix content) after the previous commit, so deployed agents
+would have seen no version change and silently skipped the update.
+`CURRENT_VERSION` is bumped to `1.2.87` and `version.json` regenerated via
+`./update_version.sh master` against the corrected `srv.py`. Note this is
+the agent's own runtime version (`CURRENT_VERSION` / `version.json`), a
+separate numbering from this file's `X.Y.Z` repository version.
+
 ### `0.1.8` — 2026-09-11 — Add TROUBLESHOOTING.md covering token, update and git-hook failures
 
 New contributors and operators had no single place mapping the agent's exact
