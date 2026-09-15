@@ -36,13 +36,13 @@ Agente de administração de servidores, com atualização a partir do GitHub.
 ## 2. Formato de Commit Obrigatório
 
 ```
-X.Y.Z - Descrição curta em português
+X.Y.Z - short description in English
 ```
 
 **Regras inegociáveis:**
 
 1. A versão **sempre** vem deste `version.md` — bumpe **no mesmo commit** da mudança.
-2. Mensagem em **português**, específica o suficiente para `git log --grep`.
+2. Write the message in **English**, specific enough for `git log --grep`.
 3. **Proibido** Conventional Commits (`feat:`, `fix:`, `chore:`…) e mensagens vagas
    ("ajuste", "update", "wip").
 4. Um objetivo por commit.
@@ -58,6 +58,15 @@ X.Y.Z - Descrição curta em português
 ## 3. Changelog
 
 > Ordem decrescente (mais recente no topo).
+
+### `0.1.8` — 2026-09-15 — Make the troubleshooting delivery installable and keep tokens out of shell history
+
+The reviewed pull request removed the runtime token log, but its published
+`version.json` hash described different `srv.py` bytes. Agents would therefore
+download 1.2.87 and reject it as an invalid update. The hash now matches the
+delivered script. The unattended configuration example also prompts with echo
+disabled instead of embedding a live token in a command, and the commit-format
+example now follows the repository-wide English-only rule.
 
 ### `0.1.8` — 2026-09-11 — Bump agent CURRENT_VERSION to 1.2.87 and refresh version.json for the debug-log fix
 

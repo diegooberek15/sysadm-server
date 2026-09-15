@@ -20,11 +20,12 @@ by `load_token()`). Checked in this order:
 non-interactively before the first run:
 
 ```bash
-sudo bash -c 'cat > /etc/blue3-agent.conf << EOF
-TOKEN=your-token-here
-EOF'
-sudo chmod 600 /etc/blue3-agent.conf
+sudo bash -c 'umask 077; read -rsp "Token: " token; printf "\nTOKEN=%s\n" "$token" > /etc/blue3-agent.conf'
 ```
+
+This prompts without echoing the token and keeps the credential out of shell
+history and the process command line. The `umask` makes the file private from
+the moment it is created.
 
 or export `BLUE3_TOKEN` in the environment the agent runs under.
 
